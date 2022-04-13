@@ -6,6 +6,7 @@ public class TraceStatus {
     private Long startTimeMs;
     private String message;
 
+
     public TraceStatus(TraceId traceId, Long startTimeMs, String message) {
         this.traceId = traceId;
         this.startTimeMs = startTimeMs;
