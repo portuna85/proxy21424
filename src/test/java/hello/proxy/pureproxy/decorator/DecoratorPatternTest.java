@@ -15,6 +15,16 @@ public class DecoratorPatternTest {
     }
 
     @Test
+    void noDecorator1() {
+        Component result = new RealComponent();
+        DecoratorPatternClient client = new DecoratorPatternClient(result);
+
+        client.execute();
+        log.info("result = {}", result.getClass());
+        log.info("client = {}", client.getClass());
+    }
+
+    @Test
     void decorator1() {
         Component realComponent = new RealComponent();
         Component messageDecorator = new MessageDecorator(realComponent);
