@@ -1,6 +1,5 @@
 package hello.proxy.advisor;
 
-import hello.proxy.common.advice.TimeAdvice;
 import hello.proxy.common.service.ServiceImpl;
 import hello.proxy.common.service.ServiceInterface;
 import lombok.extern.slf4j.Slf4j;
@@ -11,12 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.support.NameMatchMethodPointcut;
 
 @Slf4j
 public class MultiAdvisorTest {
 
     @Test
+    @DisplayName("여러 프록시")
     void multiAdvisorTest1() {
         // client -> proxy2(advisor2) -> proxy1(advisor1) -> target
         // 프록시1 생성
