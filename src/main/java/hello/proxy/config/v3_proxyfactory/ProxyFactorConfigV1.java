@@ -1,4 +1,4 @@
-package hello.proxy.config.v2_dynamicproxy;
+package hello.proxy.config.v3_proxyfactory;
 
 import hello.proxy.app.v1.*;
 import hello.proxy.config.v3_proxyfactory.advice.LogTraceAdvice;
@@ -56,5 +56,4 @@ public class ProxyFactorConfigV1 {
         LogTraceAdvice advice = new LogTraceAdvice(logTrace);
         return new DefaultPointcutAdvisor(pointcut, advice);
     }
-
 }
