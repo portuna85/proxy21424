@@ -17,8 +17,8 @@ public class BeanPostProcesserTest {
     @Test
     void basicConfig() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanPostProcessorConfig.class);
-        B b = applicationContext.getBean("beanA", B.class);
-        b.helloB();
+        C b = applicationContext.getBean("beanA", C.class);
+        b.helloC();
         //B b = applicationContext.getBean(B.class);
         Assertions.assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(A.class));
     }
@@ -48,13 +48,19 @@ public class BeanPostProcesserTest {
         }
     }
 
+    static class C {
+        public void helloC() {
+            log.info("hello C");
+        }
+    }
+
     static class AToBPostProcessor implements BeanPostProcessor {
         @Override
         public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
             log.info("beanName = {} bean = {}", beanName, bean);
 
             if (bean instanceof A) {
-                return new B();
+                return new C();
             }
             return bean;
         }
